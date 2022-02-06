@@ -5,7 +5,7 @@ import 'util/request_type.dart';
 import 'util/request_type_exception.dart';
 
 class ReqResClient {
-  static const String _baseUrl = "https://api-v2.soundcloud.com/";
+  static const String _baseUrl = "https://reqres.in/api";
   final Client _client;
 
   ReqResClient(this._client);

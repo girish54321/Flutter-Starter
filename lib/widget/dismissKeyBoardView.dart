@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reqres_app/network/util/helper.dart';
 
 class DismissKeyBoardView extends StatelessWidget {
   final Widget child;
@@ -8,7 +9,7 @@ class DismissKeyBoardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Helper().dismissKeyBoard(context);
+        Helper().dismissKeyBoard(context);
       },
       child: child,
     );

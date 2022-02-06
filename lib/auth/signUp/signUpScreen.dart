@@ -1,84 +1,94 @@
-// import 'package:OnlineGroceryStore/helper/helper.dart';
-// import 'package:OnlineGroceryStore/screen/auth/numberAuth/enterNumber/enterNumberScreen.dart';
-// import 'package:flutter/material.dart';
-// import 'package:OnlineGroceryStore/screen/auth/signUp/signUpUI.dart';
-// import 'package:OnlineGroceryStore/widget/dismissKeyBoardView.dart';
+import 'package:flutter/material.dart';
+import 'package:reqres_app/auth/signUp/SignUpUI.dart';
+import 'package:reqres_app/network/dataModel/LoginSuccess.dart';
+import 'package:reqres_app/network/model/result.dart';
+import 'package:reqres_app/network/remote_data_source.dart';
+import 'package:reqres_app/network/util/helper.dart';
+import 'package:reqres_app/widget/dismissKeyBoardView.dart';
 
-// class SignUpScreen extends StatefulWidget {
-//   SignUpScreen({Key key}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  SignUpScreen({Key? key}) : super(key: key);
 
-//   @override
-//   _LoginScreenState createState() => _LoginScreenState();
-// }
+  @override
+  _SignUpScreenState createState() => _SignUpScreenState();
+}
 
-// class _LoginScreenState extends State<SignUpScreen> {
-//   final _formKey = GlobalKey<FormState>();
-//   final useraNameController = TextEditingController();
-//   final emailController = TextEditingController();
-//   final passwordController = TextEditingController();
+class _SignUpScreenState extends State<SignUpScreen> {
+  final _formKey = GlobalKey<FormState>();
 
-//   bool validEmail = false, validPassword = false, validUserName = false;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
-//   void goBack(context) {
-//     Helper().goBack(context);
-//   }
+  bool validEmail = false, validPassword = false, remamberme = true;
 
-//   void changeVaildEmail(bool value) {
-//     setState(() {
-//       validEmail = value;
-//     });
-//   }
+  void goBack(context) {
+    // Helper().goBack(context);
+  }
 
-//   void changevalidPassword(bool value) {
-//     setState(() {
-//       validPassword = value;
-//     });
-//   }
+  void changeVaildEmail(bool value) {
+    setState(() {
+      validEmail = value;
+    });
+  }
 
-//   void changevalidUserName(bool value) {
-//     setState(() {
-//       validUserName = value;
-//     });
-//   }
+  void changevalidPassword(bool value) {
+    setState(() {
+      validPassword = value;
+    });
+  }
 
-//   void signUp() {
-//     goToNumberScreen();
-//     if (_formKey.currentState.validate()) {
-//       goToNumberScreen();
-//     } else {
-//       Helper().vibratPhone();
-//     }
-//   }
+  void changeRemamberme(bool value) {
+    print(value);
+    setState(() {
+      remamberme = value;
+    });
+  }
 
-//   void goToNumberScreen() {
-//     Helper().goToPage(context, EnterPhoneNumber());
-//   }
+  void loginUser() {
+    if (_formKey.currentState!.validate()) {
+      Helper().dismissKeyBoard(context);
+      Helper().showLoading();
+      RemoteDataSource _apiResponse = RemoteDataSource();
+      var parameter = {"email": "eve.holt@reqres.in", "password": "cityslicka"};
+      Future<Result> result = _apiResponse.userLogin(parameter);
+      result.then((value) {
+        if (value is SuccessState) {
+          Helper().hideLoading();
+          var res = value.value as LoginSuccess;
+        }
+      });
+    } else {
+      // Helper().vibratPhone();
+    }
+  }
 
-//   @override
-//   void dispose() {
-//     emailController.dispose();
-//     passwordController.dispose();
-//     useraNameController.clear();
-//     super.dispose();
-//   }
+  void createAccount() {
+    // Helper().dismissKeyBoard(context);
+    // Helper().goToPage(context, SignUpScreen());
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return DismissKeyBoardView(
-//       child: SignUpUI(
-//         emailController: emailController,
-//         passwordController: passwordController,
-//         validEmail: validEmail,
-//         validPassword: validPassword,
-//         changeVaildEmail: changeVaildEmail,
-//         changevalidPassword: changevalidPassword,
-//         formKey: _formKey,
-//         goToNumberScreen: goToNumberScreen,
-//         signUp: signUp,
-//         changevalidUserName: changevalidUserName,
-//         useraNameController: useraNameController,
-//         validUserName: validUserName,
-//       ),
-//     );
-//   }
-// }
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DismissKeyBoardView(
+      child: SignUpScreenUI(
+          emailController: emailController,
+          passwordController: passwordController,
+          validEmail: validEmail,
+          validPassword: validPassword,
+          changeVaildEmail: changeVaildEmail,
+          changevalidPassword: changevalidPassword,
+          changeRemamberme: changeRemamberme,
+          remamberme: remamberme,
+          formKey: _formKey,
+          createAccount: createAccount,
+          loginUser: loginUser),
+    );
+  }
+}

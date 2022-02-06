@@ -1,5 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:reqres_app/auth/signUp/signUpScreen.dart';
+import 'package:reqres_app/network/util/helper.dart';
+import 'package:reqres_app/widget/appIcon.dart';
 import 'package:reqres_app/widget/appInputText.dart';
 import 'package:reqres_app/widget/appText.dart';
 import 'package:reqres_app/widget/buttons.dart';
@@ -49,15 +52,14 @@ class LoginScreenUI extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SlideInLeft(
-                          duration: const Duration(milliseconds: 600),
-                          child: AppBar(
-                            title: Text("Login"),
-                          )),
+                      AppBar(
+                          title: FadeInRight(
+                              duration: const Duration(milliseconds: 500),
+                              child: const Text("Login"))),
                       Column(
                         children: [
-                          FadeInUp(
-                            duration: const Duration(seconds: 1),
+                          FadeInRight(
+                            duration: const Duration(milliseconds: 500),
                             child: Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 46),
@@ -91,9 +93,9 @@ class LoginScreenUI extends StatelessWidget {
                                           changeVaildEmail(true);
                                         }
                                       },
-                                      // rightIcon: validEmail
-                                      //     ? RightIcon()
-                                      //     : WorngIcon(),
+                                      rightIcon: validEmail
+                                          ? RightIcon()
+                                          : WorngIcon(),
                                       validator: (password) {
                                         final passWordRule = Rule(password,
                                             name: 'Email',
@@ -120,9 +122,9 @@ class LoginScreenUI extends StatelessWidget {
                                           changevalidPassword(true);
                                         }
                                       },
-                                      // rightIcon: validPassword
-                                      //     ? RightIcon()
-                                      // : WorngIcon(),
+                                      rightIcon: validPassword
+                                          ? RightIcon()
+                                          : WorngIcon(),
                                       validator: (password) {
                                         final passWordRule = Rule(password,
                                             name: 'Password',
@@ -138,20 +140,19 @@ class LoginScreenUI extends StatelessWidget {
                                     height: 8,
                                   ),
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
-                                      Row(children: const [
+                                      Row(children: [
                                         SizedBox(
                                           child: SizedBox(
-                                            height: 24.0,
-                                            width: 24.0,
-                                            // child: Checkbox(
-                                            // value: remamberme,
-                                            // onChanged: (bool value) {
-                                            //   changeRemamberme(value);
-                                            // },
-                                          ),
+                                              height: 24.0,
+                                              width: 24.0,
+                                              child: Checkbox(
+                                                onChanged: (bool? value) {
+                                                  changeRemamberme(value);
+                                                },
+                                                value: remamberme,
+                                              )),
                                         ),
                                       ]),
                                       const SizedBox(
@@ -163,15 +164,20 @@ class LoginScreenUI extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  GestureDetector(
-                                      onTap: () {
-                                        // Helper().goToPage(
-                                        //     context, ForgotPasswordScreen());
-                                      },
-                                      child: const Text(
-                                        'Forgot Password',
-                                        style: TextStyle(fontSize: 16.0),
-                                      )),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      GestureDetector(
+                                          onTap: () {
+                                            // Helper().goToPage(
+                                            //     context, ForgotPasswordScreen());
+                                          },
+                                          child: const Text(
+                                            'Forgot Password',
+                                            style: TextStyle(fontSize: 16.0),
+                                          )),
+                                    ],
+                                  ),
                                   const SizedBox(
                                     height: 22,
                                   ),
@@ -188,6 +194,14 @@ class LoginScreenUI extends StatelessWidget {
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.topRight,
+                                    child: TextButton(
+                                        child: const Text('Create New Account'),
+                                        onPressed: () {
+                                          createAccount();
+                                        }),
                                   )
                                 ],
                               ),
@@ -195,8 +209,8 @@ class LoginScreenUI extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Text("data"),
-                      Text("")
+                      const Text(""),
+                      const Text("")
                     ],
                   ),
                 )),

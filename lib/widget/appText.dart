@@ -35,7 +35,7 @@ class AppTextH2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      textAlign: textAlign == null ? TextAlign.start : textAlign,
+      textAlign: textAlign ?? TextAlign.start,
       style: TextStyle(
           height: 1.6, fontSize: 28, color: color, fontWeight: fontWeight),
     );
@@ -60,7 +60,7 @@ class AppTextP1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      textAlign: textAlign ?? TextAlign.start,
+      textAlign: textAlign,
       maxLines: numberOfLine ?? 2,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
