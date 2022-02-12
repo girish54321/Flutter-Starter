@@ -1,6 +1,5 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:reqres_app/auth/signUp/signUpScreen.dart';
 import 'package:reqres_app/network/util/helper.dart';
 import 'package:reqres_app/widget/appIcon.dart';
 import 'package:reqres_app/widget/appInputText.dart';
@@ -168,10 +167,7 @@ class LoginScreenUI extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       GestureDetector(
-                                          onTap: () {
-                                            // Helper().goToPage(
-                                            //     context, ForgotPasswordScreen());
-                                          },
+                                          onTap: () {},
                                           child: const Text(
                                             'Forgot Password',
                                             style: TextStyle(fontSize: 16.0),

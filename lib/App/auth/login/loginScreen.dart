@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:reqres_app/App/HomeScreen/HomeScreen.dart';
-import 'package:reqres_app/auth/login/loginUI.dart';
-import 'package:reqres_app/auth/signUp/SignUpScreen.dart';
+import 'package:reqres_app/App/auth/login/loginUI.dart';
+import 'package:reqres_app/App/auth/signUp/SignUpScreen.dart';
 import 'package:reqres_app/network/dataModel/LoginSuccess.dart';
 import 'package:reqres_app/network/model/result.dart';
 import 'package:reqres_app/network/remote_data_source.dart';
 import 'package:reqres_app/network/util/helper.dart';
 import 'package:reqres_app/widget/dismissKeyBoardView.dart';
-
-import '../../widget/DialogHelper.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -53,14 +52,21 @@ class _LoginScreenState extends State<LoginScreen> {
       Helper().dismissKeyBoard(context);
       Helper().showLoading();
       RemoteDataSource _apiResponse = RemoteDataSource();
-      var parameter = {"email": "eve.holt@reqres.in", "password": "cityslicka"};
+      var parameter = {
+        "email": "eve.holt@reqres.in",
+        "password": "cityslickasss"
+      };
       Future<Result> result = _apiResponse.userLogin(parameter);
       result.then((value) {
         if (value is SuccessState) {
           Helper().hideLoading();
-          var res = value.value as LoginSuccess;
+          if (remamberme) {
+            GetStorage box = GetStorage();
+            var res = value.value as LoginSuccess;
+            box.write('token', res.token);
+          }
           Get.off(HomeScreen());
-        }
+        } else {}
       });
     } else {
       // Helper().vibratPhone();

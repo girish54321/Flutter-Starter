@@ -44,6 +44,7 @@ dependencies:
   http: ^0.13.4
   get: ^4.6.1
   page_transition: ^2.0.2
+  get_storage: ^2.0.3
 
 dev_dependencies:
   flutter_test:

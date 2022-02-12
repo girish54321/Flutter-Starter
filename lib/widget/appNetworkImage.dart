@@ -23,7 +23,7 @@ class AppNetWorkIamge extends StatelessWidget {
           ),
         ),
       ),
-      placeholder: (context, url) => const AppPlaceholder(),
+      // placeholder: (context, url) => const AppPlaceholder(),
       errorWidget: (context, url, error) => const Icon(Icons.error),
     );
   }
@@ -41,9 +41,10 @@ class AppPlaceholder extends StatelessWidget {
         child: Container(
           height: 50,
           decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/image/icon_color.png'),
-                  fit: BoxFit.fitHeight)),
+            image: DecorationImage(
+                image: AssetImage('assets/image/icon_color.png'),
+                fit: BoxFit.fitHeight),
+          ),
         ),
       ),
     );
