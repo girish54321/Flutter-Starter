@@ -17,9 +17,9 @@ class SearchBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: height ?? 37,
-        padding: EdgeInsets.only(left: 18),
+        padding: const EdgeInsets.only(left: 18),
         decoration: BoxDecoration(
-            color: Color(0xFFefefef),
+            color: const Color(0xFFefefef),
             borderRadius: BorderRadius.circular(radius ?? 24.7)),
         child: Center(
           child: TextFormField(

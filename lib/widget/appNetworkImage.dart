@@ -12,14 +12,13 @@ class AppNetWorkIamge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: imageUrl ??
-          "https://target.scene7.com/is/image/Target//GUEST_6bdfe36e-d26d-4cee-918e-39cb9c377d44",
+      imageUrl: imageUrl,
       imageBuilder: (context, imageProvider) => Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(radius ?? 4),
           image: DecorationImage(
             image: imageProvider,
-            fit: boxFit != null ? boxFit : BoxFit.cover,
+            fit: boxFit ?? BoxFit.cover,
           ),
         ),
       ),

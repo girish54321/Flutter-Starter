@@ -6,7 +6,7 @@ import 'package:reqres_app/App/auth/login/loginScreen.dart';
 
 main() async {
   await GetStorage.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

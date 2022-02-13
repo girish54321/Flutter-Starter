@@ -48,8 +48,8 @@ class DialogHelper {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      CircularProgressIndicator(),
-                      SizedBox(height: 8),
+                      const CircularProgressIndicator(),
+                      const SizedBox(height: 8),
                       Text(message ?? 'Loading...'),
                     ],
                   ),
@@ -62,8 +62,8 @@ class DialogHelper {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      CircularProgressIndicator(),
-                      SizedBox(height: 8),
+                      const CircularProgressIndicator(),
+                      const SizedBox(height: 8),
                       Text(message ?? 'Loading...'),
                     ],
                   ),

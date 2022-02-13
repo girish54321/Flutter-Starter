@@ -4,8 +4,10 @@ import 'package:get_storage/get_storage.dart';
 import 'package:reqres_app/App/HomeScreen/HomeScreenUI.dart';
 import 'package:reqres_app/App/UserInfoScreen/userinfoScreenUI.dart';
 import 'package:reqres_app/App/auth/login/loginScreen.dart';
+import 'package:reqres_app/network/model/userListModal.dart';
 import 'package:reqres_app/network/remote_data_source.dart';
 import 'package:reqres_app/network/util/helper.dart';
+import 'package:reqres_app/state/userListState.dart';
 import 'package:reqres_app/widget/DialogHelper.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,6 +19,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   RemoteDataSource _apiResponse = RemoteDataSource();
+  final ProductController controller = Get.put(ProductController());
 
   Future<void> userLogout() async {
     final action =
@@ -28,7 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  void goToUserInfoScreen() {
+  void goToUserInfoScreen(UserListResponseData userListResponseData) {
+    controller.selectUser(userListResponseData);
     Helper().goToPage(context: context, child: UserInfoScreen());
   }
 

@@ -1,6 +1,5 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:reqres_app/network/util/helper.dart';
 import 'package:reqres_app/widget/appIcon.dart';
 import 'package:reqres_app/widget/appInputText.dart';
 import 'package:reqres_app/widget/appText.dart';

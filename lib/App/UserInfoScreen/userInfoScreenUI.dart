@@ -9,6 +9,8 @@ class UserInfoScreen extends StatefulWidget {
 }
 
 class _UserInfoScreenState extends State<UserInfoScreen> {
+//  final CounterController controller = Get.put(CounterController());
+
   @override
   Widget build(BuildContext context) {
     return UserInfoScreenUI();

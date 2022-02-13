@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:reqres_app/network/model/result.dart';
 import 'package:reqres_app/network/model/userListModal.dart';
@@ -27,7 +25,10 @@ class HomeScreenUI extends StatelessWidget {
               onPressed: () {
                 showSearch(
                     context: context,
-                    delegate: MySeachDeeget(hintText: 'Search user'));
+                    delegate: MySeachDeeget(
+                      goToUserInfoScreen: goToUserInfoScreen,
+                      hintText: 'Search user',
+                    ));
               },
               icon: const Icon(Icons.search)),
           IconButton(
@@ -65,7 +66,7 @@ class HomeScreenUI extends StatelessWidget {
                     title: Text(userItem.firstName! + " " + userItem.lastName!),
                     subtitle: Text(userItem.email!),
                     onTap: () {
-                      goToUserInfoScreen();
+                      goToUserInfoScreen(userItem);
                     },
                   );
                 },
@@ -79,7 +80,11 @@ class HomeScreenUI extends StatelessWidget {
 
 class MySeachDeeget extends SearchDelegate {
   final String hintText;
-  MySeachDeeget({required this.hintText});
+  final Function goToUserInfoScreen;
+  MySeachDeeget({
+    required this.hintText,
+    required this.goToUserInfoScreen,
+  });
   RemoteDataSource _apiResponse = RemoteDataSource();
 
   @override
@@ -138,6 +143,9 @@ class MySeachDeeget extends SearchDelegate {
                   ),
                   title: Text(userItem.firstName! + " " + userItem.lastName!),
                   subtitle: Text(userItem.email!),
+                  onTap: () {
+                    goToUserInfoScreen(userItem);
+                  },
                 );
               },
             );

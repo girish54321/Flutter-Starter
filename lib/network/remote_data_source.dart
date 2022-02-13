@@ -40,9 +40,9 @@ class RemoteDataSource {
     Result incomingData = Result.loading("Loading");
     try {
       final response = await client.request(
-        requestType: RequestType.GET,
-        path: APIPathHelper.getValue(APIPath.users),
-      );
+          requestType: RequestType.GET,
+          path: APIPathHelper.getValue(APIPath.users),
+          params: {"per_page": "50"});
       print(response.body.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
         incomingData = Result<UserListResponse>.success(
