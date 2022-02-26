@@ -1,0 +1,5 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main-reqres.dart
+ASSET_PREFIX=reqres
+BUNDLE_NAME=ReqRes

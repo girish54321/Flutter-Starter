@@ -57,6 +57,42 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  flutter_flavorizr: ^2.1.2
+
+flavorizr:
+  app:
+    android:
+      flavorDimensions: "flavor-type"
+    ios:
+
+  flavors:
+    reqres:
+      app:
+        name: "ReqRes"
+
+      android:
+        applicationId: "com.example.reqres_app.android"
+
+      ios:
+        bundleId: "com.example.reqres_app.ios"
+
+    reqres_dev:
+      app:
+        name: "ReqRes DEV"
+
+      android:
+        applicationId: "com.example.reqres_app.android.dev"
+      ios:
+        bundleId: "com.example.reqres_app.ios.dev"
+
+    reqres_qa:
+      app:
+        name: "ReqRes QA"
+
+      android:
+        applicationId: "com.example.reqres_app.android.qa"
+      ios:
+        bundleId: "com.example.reqres_app.ios.qa"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
