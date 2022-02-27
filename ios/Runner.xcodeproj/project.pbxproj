@@ -488,7 +488,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
@@ -1038,7 +1038,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
@@ -1060,7 +1060,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
@@ -1149,6 +1149,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4674A12AF1B4538A65E7A7EF /* Pods-Runner.debug-reqres.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres";
 				PRODUCT_NAME = Runner;
 			};
 			name = "Debug-reqres";
@@ -1157,6 +1158,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 35D4ACA3697A7C9BCDF0D09D /* Pods-Runner.profile-reqres.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres";
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-reqres";
@@ -1165,6 +1167,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3F34A7061CB9914F75EAC704 /* Pods-Runner.release-reqres.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres";
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-reqres";
@@ -1173,6 +1176,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1C0073CEA56232487186E08B /* Pods-Runner.debug-reqres_dev.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres_dev";
 				PRODUCT_NAME = Runner;
 			};
 			name = "Debug-reqres_dev";
@@ -1181,6 +1185,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F423AADB15151B7D624F9006 /* Pods-Runner.profile-reqres_dev.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres_dev";
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-reqres_dev";
@@ -1189,6 +1194,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F47475ABAFAE37118A9B1544 /* Pods-Runner.release-reqres_dev.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres_dev";
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-reqres_dev";
@@ -1197,6 +1203,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F180D2E116E033C2B593A5E3 /* Pods-Runner.debug-reqres_qa.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres_qa";
 				PRODUCT_NAME = Runner;
 			};
 			name = "Debug-reqres_qa";
@@ -1205,6 +1212,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8C4310F0C6A5A1F0D747048 /* Pods-Runner.profile-reqres_qa.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres_qa";
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-reqres_qa";
@@ -1213,6 +1221,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB98C58AF564738D85CC206 /* Pods-Runner.release-reqres_qa.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-reqres_qa";
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-reqres_qa";
