@@ -12,7 +12,7 @@ A Flutter boilerplate project using Getx and http.
 Clone the project
 
 ```bash
-  git clone https://github.com/girish54321/react-native-typescript-starter.git
+  git clone https://github.com/girish54321/Flutter-Starter.git
 ```
 
 Go to the project directory
