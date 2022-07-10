@@ -25,13 +25,13 @@ class RemoteDataSource {
             LoginSuccess.fromJson(json.decode(response.body)));
         return incomingData;
       } else {
-        DialogHelper.showErroDialog(description: response.body.toString());
+        DialogHelper.showErrorDialog(description: response.body.toString());
         incomingData = Result.error(response.statusCode);
         return incomingData;
       }
     } catch (error) {
       incomingData = Result.error("Something went wrong!");
-      DialogHelper.showErroDialog(description: "Something went wrong!");
+      DialogHelper.showErrorDialog(description: "Something went wrong!");
       return incomingData;
     }
   }
@@ -49,13 +49,13 @@ class RemoteDataSource {
             UserListResponse.fromJson(json.decode(response.body)));
         return incomingData;
       } else {
-        DialogHelper.showErroDialog(description: response.body.toString());
+        DialogHelper.showErrorDialog(description: response.body.toString());
         incomingData = Result.error(response.statusCode);
         return incomingData;
       }
     } catch (error) {
       incomingData = Result.error("Something went wrong!");
-      DialogHelper.showErroDialog(description: "Something went wrong!");
+      DialogHelper.showErrorDialog(description: "Something went wrong!");
       return incomingData;
     }
   }
