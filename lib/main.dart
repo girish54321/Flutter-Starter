@@ -5,27 +5,14 @@ import 'package:get/get.dart';
 import 'package:reqres_app/App/auth/login/loginScreen.dart';
 import 'package:reqres_app/flavors.dart';
 import 'package:reqres_app/state/userListState.dart';
-
-ThemeData _darkTheme = ThemeData(
-    accentColor: Colors.red,
-    brightness: Brightness.dark,
-    primaryColor: Colors.amber,
-    buttonTheme: ButtonThemeData(
-      buttonColor: Colors.amber,
-      disabledColor: Colors.grey,
-    ));
-
-ThemeData _lightTheme = ThemeData(
-    accentColor: Colors.pink,
-    brightness: Brightness.light,
-    primaryColor: Colors.blue,
-    buttonTheme: ButtonThemeData(
-      buttonColor: Colors.red,
-      disabledColor: Colors.red,
-    ));
+import 'package:flutter/services.dart'; // For rootBundle
+import 'dart:convert'; // For jsonDecode
 
 class ReqResApp extends StatelessWidget {
-  const ReqResApp({Key? key}) : super(key: key);
+  final ThemeData darkThem;
+  final ThemeData lightThem;
+  const ReqResApp({Key? key, required this.darkThem, required this.lightThem})
+      : super(key: key);
 
   // This widget is the root of your application.
   //CMD
@@ -34,17 +21,11 @@ class ReqResApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GetStorage box = GetStorage();
-    final SettingController settingController =
-        GetInstance().put<SettingController>(SettingController());
+    GetInstance().put<SettingController>(SettingController());
     return GetMaterialApp(
       title: 'Flutter Demo',
-      // themeMode: ThemeMode.system,
-      // theme: ThemeData(scaffoldBackgroundColor: Colors.red),
-      // theme: ThemeData(primarySwatch: Colors.red),
-      // darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.red),
-      theme: _lightTheme,
-      darkTheme: _darkTheme,
-      // themeMode: ThemeMode.system,
+      darkTheme: darkThem,
+      theme: lightThem,
       getPages: [
         GetPage(
             name: '/',

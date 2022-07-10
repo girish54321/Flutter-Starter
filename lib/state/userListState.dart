@@ -49,108 +49,23 @@ class SettingController extends GetxController {
       print(box.read('darkThem'));
       if (box.read('darkThem')) {
         isDark.value = true;
-        changeMode();
+        // changeMode();
+        Get.changeThemeMode(ThemeMode.dark);
       } else {
         isDark.value = false;
-        changeMode();
+        // changeMode();
+        Get.changeThemeMode(ThemeMode.light);
       }
     } else {
       isDark.value = false;
-      changeMode();
+      // changeMode();
+      Get.changeThemeMode(ThemeMode.light);
     }
   }
 
   void saveThemSetting(bool value) {
     box.write("darkThem", value);
   }
-
-  ThemeData _darkTheme = ThemeData(
-      accentColor: Colors.red,
-      brightness: Brightness.dark,
-      primaryColor: Colors.amber,
-      buttonTheme: ButtonThemeData(
-        buttonColor: Colors.amber,
-        disabledColor: Colors.grey,
-      ));
-
-  ThemeData _lightTheme = ThemeData(
-    fontFamily: "customFont",
-    primaryColor: Color(0xff20b36e),
-    buttonColor: Color(0xff20b36e),
-    accentColor: Color(0xff20b36e),
-    primarySwatch: MaterialColor(
-      4280333166,
-      <int, Color>{
-        50: Color.fromRGBO(
-          32,
-          179,
-          110,
-          .1,
-        ),
-        100: Color.fromRGBO(
-          32,
-          179,
-          110,
-          .2,
-        ),
-        200: Color.fromRGBO(
-          32,
-          179,
-          110,
-          .3,
-        ),
-        300: Color.fromRGBO(
-          32,
-          179,
-          110,
-          .4,
-        ),
-        400: Color.fromRGBO(
-          32,
-          179,
-          110,
-          .5,
-        ),
-        500: Color.fromRGBO(
-          32,
-          179,
-          110,
-          .6,
-        ),
-        600: Color.fromRGBO(
-          32,
-          179,
-          110,
-          .7,
-        ),
-        700: Color.fromRGBO(
-          32,
-          179,
-          110,
-          .8,
-        ),
-        800: Color.fromRGBO(
-          32,
-          179,
-          110,
-          .9,
-        ),
-        900: Color.fromRGBO(
-          32,
-          179,
-          110,
-          1,
-        ),
-      },
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
-          Color(0xff20b36e),
-        ),
-      ),
-    ),
-  );
 
   void changeMode() {
     isDark.value = !isDark.value;

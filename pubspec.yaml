@@ -47,6 +47,8 @@ dependencies:
   get_storage: ^2.0.3
   flutter_typeahead: ^3.2.4
 
+  json_theme: ^4.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -110,6 +112,8 @@ flutter:
     - assets/appicon/dev_icon.png
     - assets/appicon/prod_icon.png
     - assets/appicon/qa_icon.png
+    - assets/them/lightThemData.json
+    - assets/them/darkThemData.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
