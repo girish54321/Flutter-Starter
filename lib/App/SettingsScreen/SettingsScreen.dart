@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_instance/src/get_instance.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 import 'package:reqres_app/state/userListState.dart';
-import 'dart:io' show Platform;
 
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({Key? key}) : super(key: key);
@@ -29,15 +26,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               subtitle: const Text("Change app them"),
               trailing: Obx((() => Switch(
                     value: settingController.isDark.value,
-                    onChanged: (bool _) => settingController.changeMode(),
+                    onChanged: (bool _) => settingController.toggleThem(),
                   )))),
-          Switch(value: true, onChanged: (bool _) => print("fa"))
-          // Obx(
-          //   () => CupertinoSwitch(
-          //     onChanged: (bool _) => settingController.changeMode(),
-          //     value: settingController.isDark.value,
-          //   ),
-          // ),
         ],
       ),
     );

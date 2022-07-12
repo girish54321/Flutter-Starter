@@ -45,20 +45,16 @@ class SettingController extends GetxController {
 
   void loadThem() {
     if (box.hasData('darkThem')) {
-      print("on load");
-      print(box.read('darkThem'));
-      if (box.read('darkThem')) {
+      var isSavedDark = box.read('darkThem');
+      if (isSavedDark) {
         isDark.value = true;
-        // changeMode();
         Get.changeThemeMode(ThemeMode.dark);
       } else {
         isDark.value = false;
-        // changeMode();
         Get.changeThemeMode(ThemeMode.light);
       }
     } else {
       isDark.value = false;
-      // changeMode();
       Get.changeThemeMode(ThemeMode.light);
     }
   }
@@ -67,16 +63,54 @@ class SettingController extends GetxController {
     box.write("darkThem", value);
   }
 
-  void changeMode() {
+  void toggleThem() {
     isDark.value = !isDark.value;
-    if (isDark.value) {
-      saveThemSetting(false);
+    if (isDark.value == true) {
+      saveThemSetting(true);
       // Get.changeTheme(_darkTheme);
       Get.changeThemeMode(ThemeMode.dark);
-    } else {
-      saveThemSetting(true);
+    } else if (isDark.value == false) {
+      saveThemSetting(false);
       // Get.changeTheme(_lightTheme);
       Get.changeThemeMode(ThemeMode.light);
     }
   }
+
+  // void loadThem() {
+  //   if (box.hasData('darkThem')) {
+  //     print("on load");
+  //     print(box.read('darkThem'));
+  //     if (box.read('darkThem')) {
+  //       isDark.value = true;
+  //       // changeMode();
+  //       Get.changeThemeMode(ThemeMode.dark);
+  //     } else {
+  //       isDark.value = false;
+  //       // changeMode();
+  //       Get.changeThemeMode(ThemeMode.light);
+  //     }
+  //   } else {
+  //     isDark.value = false;
+  //     // changeMode();
+  //     Get.changeThemeMode(ThemeMode.light);
+  //   }
+  // }
+
+  // void saveThemSetting(bool value) {
+  //   box.write("darkThem", value);
+  // }
+
+  // void changeMode() {
+  //   isDark.value = !isDark.value;
+  //   if (isDark.value) {
+  //     saveThemSetting(false);
+  //     // Get.changeTheme(_darkTheme);
+  //     Get.changeThemeMode(ThemeMode.dark);
+  //   } else {
+  //     saveThemSetting(true);
+  //     // Get.changeTheme(_lightTheme);
+  //     Get.changeThemeMode(ThemeMode.light);
+  //   }
+  // }
+
 }

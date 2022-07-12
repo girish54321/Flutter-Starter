@@ -24,8 +24,18 @@ class ReqResApp extends StatelessWidget {
     GetInstance().put<SettingController>(SettingController());
     return GetMaterialApp(
       title: 'Flutter Demo',
-      darkTheme: darkThem,
-      theme: lightThem,
+      darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          primarySwatch: Colors.green,
+          // colorSchemeSeed: Colors.green,
+          useMaterial3: false),
+      theme: ThemeData(
+          // colorSchemeSeed: Colors.green,
+          primarySwatch: Colors.green,
+          useMaterial3: false),
+      // darkTheme: darkThem,
+      // darkTheme: ThemeData(scaffoldBackgroundColor: Colors.grey.shade900),
+      // theme: lightThem,
       getPages: [
         GetPage(
             name: '/',
