@@ -47,6 +47,11 @@ On iOS or use XCode
 ```bash
   cd ios && pod install && cd .. && yarn run ios11
 ```
+
+```bash
+  flutter build apk --release -t lib/main-reqres_dev.dart --flavor reqres_dev
+```
+
 ## FAQ
 
 #### How to change ios simulator
