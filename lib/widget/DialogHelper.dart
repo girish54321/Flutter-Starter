@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class DialogHelper {
   //show error dialog
-  static void showErroDialog(
+  static void showErrorDialog(
       {String title = 'Error', String? description = 'Something went wrong'}) {
     Get.dialog(
         GetPlatform.isAndroid

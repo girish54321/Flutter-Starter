@@ -19,19 +19,19 @@ class RemoteDataSource {
           requestType: RequestType.POST,
           path: APIPathHelper.getValue(APIPath.login),
           parameter: parameter);
-      print(response.body.toString());
+      // print(response.body.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
         incomingData = Result<LoginSuccess>.success(
             LoginSuccess.fromJson(json.decode(response.body)));
         return incomingData;
       } else {
-        DialogHelper.showErroDialog(description: response.body.toString());
+        DialogHelper.showErrorDialog(description: response.body.toString());
         incomingData = Result.error(response.statusCode);
         return incomingData;
       }
     } catch (error) {
       incomingData = Result.error("Something went wrong!");
-      DialogHelper.showErroDialog(description: "Something went wrong!");
+      DialogHelper.showErrorDialog(description: "Something went wrong!");
       return incomingData;
     }
   }
@@ -43,19 +43,19 @@ class RemoteDataSource {
           requestType: RequestType.GET,
           path: APIPathHelper.getValue(APIPath.users),
           params: {"per_page": "50"});
-      print(response.body.toString());
+      // print(response.body.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
         incomingData = Result<UserListResponse>.success(
             UserListResponse.fromJson(json.decode(response.body)));
         return incomingData;
       } else {
-        DialogHelper.showErroDialog(description: response.body.toString());
+        DialogHelper.showErrorDialog(description: response.body.toString());
         incomingData = Result.error(response.statusCode);
         return incomingData;
       }
     } catch (error) {
       incomingData = Result.error("Something went wrong!");
-      DialogHelper.showErroDialog(description: "Something went wrong!");
+      DialogHelper.showErrorDialog(description: "Something went wrong!");
       return incomingData;
     }
   }

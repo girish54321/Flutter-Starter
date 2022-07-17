@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:reqres_app/App/HomeScreen/HomeScreenUI.dart';
+import 'package:reqres_app/App/SettingsScreen/SettingsScreen.dart';
 import 'package:reqres_app/App/UserInfoScreen/userinfoScreenUI.dart';
 import 'package:reqres_app/App/auth/login/loginScreen.dart';
 import 'package:reqres_app/network/model/userListModal.dart';
@@ -9,6 +11,12 @@ import 'package:reqres_app/network/remote_data_source.dart';
 import 'package:reqres_app/network/util/helper.dart';
 import 'package:reqres_app/state/userListState.dart';
 import 'package:reqres_app/widget/DialogHelper.dart';
+
+class AppMenuItem {
+  final String id;
+  final Widget widget;
+  AppMenuItem(this.id, this.widget);
+}
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -20,6 +28,20 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   RemoteDataSource _apiResponse = RemoteDataSource();
   final ProductController controller = Get.put(ProductController());
+  final List<AppMenuItem> menu = [
+    AppMenuItem(
+        "setting",
+        const ListTile(
+          leading: Icon(Icons.settings),
+          title: Text('Settings'),
+        )),
+    AppMenuItem(
+        "logout",
+        const ListTile(
+          leading: Icon(Icons.logout),
+          title: Text('Logout'),
+        ))
+  ];
 
   Future<void> userLogout() async {
     final action =
@@ -33,7 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void goToUserInfoScreen(UserListResponseData userListResponseData) {
     controller.selectUser(userListResponseData);
-    Helper().goToPage(context: context, child: UserInfoScreen());
+    Helper().goToPage(context: context, child: const UserInfoScreen());
+  }
+
+  void goToSettings() {
+    Helper().goToPage(context: context, child: SettingsScreen());
   }
 
   @override
@@ -41,6 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return HomeScreenUI(
         userLogout: userLogout,
         remoteDataSource: _apiResponse,
+        menu: menu,
+        goToSettings: goToSettings,
         goToUserInfoScreen: goToUserInfoScreen);
   }
 }

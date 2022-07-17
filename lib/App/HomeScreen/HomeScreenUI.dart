@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reqres_app/App/HomeScreen/HomeScreen.dart';
 import 'package:reqres_app/network/model/result.dart';
 import 'package:reqres_app/network/model/userListModal.dart';
 import 'package:reqres_app/network/remote_data_source.dart';
@@ -8,11 +9,15 @@ class HomeScreenUI extends StatelessWidget {
   final Function userLogout;
   final RemoteDataSource remoteDataSource;
   final Function goToUserInfoScreen;
+  final List<AppMenuItem> menu;
+  final Function goToSettings;
   const HomeScreenUI(
       {Key? key,
       required this.userLogout,
       required this.remoteDataSource,
-      required this.goToUserInfoScreen})
+      required this.goToUserInfoScreen,
+      required this.menu,
+      required this.goToSettings})
       : super(key: key);
 
   @override
@@ -31,12 +36,24 @@ class HomeScreenUI extends StatelessWidget {
                     ));
               },
               icon: const Icon(Icons.search)),
-          IconButton(
-            onPressed: () {
-              userLogout();
+          PopupMenuButton<String>(
+            onSelected: (val) {
+              if (val == "logout") {
+                userLogout();
+                return;
+              }
+              if (val == "setting") {
+                goToSettings();
+                return;
+              }
             },
-            icon: const Icon(Icons.logout),
-          )
+            itemBuilder: (BuildContext context) {
+              return menu.map((AppMenuItem choice) {
+                return PopupMenuItem<String>(
+                    value: choice.id, child: choice.widget);
+              }).toList();
+            },
+          ),
         ],
       ),
       body: FutureBuilder(
