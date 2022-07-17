@@ -4,9 +4,9 @@ import 'package:reqres_app/App/HomeScreen/HomeScreen.dart';
 import 'package:get/get.dart';
 import 'package:reqres_app/App/auth/login/loginScreen.dart';
 import 'package:reqres_app/flavors.dart';
-import 'package:reqres_app/state/userListState.dart';
+import 'package:reqres_app/state/settingsState.dart';
 import 'package:flutter/services.dart'; // For rootBundle
-import 'dart:convert'; // For jsonDecode
+// For jsonDecode
 
 class ReqResApp extends StatelessWidget {
   final ThemeData darkThem;
