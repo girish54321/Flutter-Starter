@@ -93,8 +93,8 @@ class SignUpScreenUI extends StatelessWidget {
                                         }
                                       },
                                       rightIcon: validEmail
-                                          ? RightIcon()
-                                          : WorngIcon(),
+                                          ? const RightIcon()
+                                          : const WrongIcon(),
                                       validator: (password) {
                                         final passWordRule = Rule(password,
                                             name: 'Email',
@@ -122,8 +122,8 @@ class SignUpScreenUI extends StatelessWidget {
                                         }
                                       },
                                       rightIcon: validPassword
-                                          ? RightIcon()
-                                          : WorngIcon(),
+                                          ? const RightIcon()
+                                          : const WrongIcon(),
                                       validator: (password) {
                                         final passWordRule = Rule(password,
                                             name: 'Password',
@@ -151,8 +151,8 @@ class SignUpScreenUI extends StatelessWidget {
                                         }
                                       },
                                       rightIcon: validPassword
-                                          ? RightIcon()
-                                          : WorngIcon(),
+                                          ? const RightIcon()
+                                          : const WrongIcon(),
                                       validator: (password) {
                                         final passWordRule = Rule(password,
                                             name: 'Confirm Password',

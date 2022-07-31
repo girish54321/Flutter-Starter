@@ -36,8 +36,8 @@ class _InputTextState extends State<InputText> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(bottom: 18, top: 9),
-      decoration: BoxDecoration(),
+      padding: const EdgeInsets.only(bottom: 18, top: 9),
+      decoration: const BoxDecoration(),
       child: TextFormField(
         keyboardType: widget.textInputType,
         focusNode: widget.focusNode,

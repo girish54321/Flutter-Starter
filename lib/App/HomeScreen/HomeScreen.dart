@@ -6,6 +6,7 @@ import 'package:reqres_app/App/HomeScreen/HomeScreenUI.dart';
 import 'package:reqres_app/App/SettingsScreen/SettingsScreen.dart';
 import 'package:reqres_app/App/UserInfoScreen/userinfoScreenUI.dart';
 import 'package:reqres_app/App/auth/login/loginScreen.dart';
+import 'package:reqres_app/network/model/result.dart';
 import 'package:reqres_app/network/model/userListModal.dart';
 import 'package:reqres_app/network/remote_data_source.dart';
 import 'package:reqres_app/network/util/helper.dart';
@@ -60,6 +61,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void goToSettings() {
     Helper().goToPage(context: context, child: SettingsScreen());
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Future<Result> result = _apiResponse.userList();
+    result.then((value) {
+      if (value is SuccessState) {
+        var res = value.value as UserListResponse;
+        controller.saveResponseInState(res);
+      } else {}
+    });
   }
 
   @override
