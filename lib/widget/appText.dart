@@ -67,7 +67,7 @@ class AppTextP1 extends StatelessWidget {
           fontSize: 19,
           height: 1.3,
           fontWeight: fontWeight ?? FontWeight.normal,
-          color: color ?? null),
+          color: color),
     );
   }
 }

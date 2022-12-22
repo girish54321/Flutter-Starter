@@ -6,17 +6,12 @@ import 'package:reqres_app/App/auth/login/loginScreen.dart';
 import 'package:reqres_app/flavors.dart';
 import 'package:reqres_app/state/settingsState.dart';
 import 'package:flutter/services.dart'; // For rootBundle
-// For jsonDecode
 
 class ReqResApp extends StatelessWidget {
   final ThemeData darkThem;
   final ThemeData lightThem;
   const ReqResApp({Key? key, required this.darkThem, required this.lightThem})
       : super(key: key);
-
-  // This widget is the root of your application.
-  //CMD
-  // flutter run --flavor reqres_dev -t lib/main-reqres_dev.dart
 
   @override
   Widget build(BuildContext context) {
@@ -28,15 +23,8 @@ class ReqResApp extends StatelessWidget {
       darkTheme: ThemeData(
           brightness: Brightness.dark,
           primarySwatch: Colors.green,
-          // colorSchemeSeed: Colors.green,
           useMaterial3: false),
-      theme: ThemeData(
-          // colorSchemeSeed: Colors.green,
-          primarySwatch: Colors.green,
-          useMaterial3: false),
-      // darkTheme: darkThem,
-      // darkTheme: ThemeData(scaffoldBackgroundColor: Colors.grey.shade900),
-      // theme: lightThem,
+      theme: ThemeData(primarySwatch: Colors.green, useMaterial3: false),
       getPages: [
         GetPage(
             name: '/',

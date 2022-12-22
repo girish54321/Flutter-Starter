@@ -1,6 +1,17 @@
 # Flutter Starter with Flavors ❤️
 
-A Flutter boilerplate project using Getx and http.
+
+## Welcome
+Welcome to our Flutter starter repo! This repo includes a variety of core features to help you get started building a top-quality mobile app.
+
+## Flavor builds
+
+Need to create different versions of your app for different markets or audiences? No problem! This starter repo includes support for flavor builds, so you can easily create unique versions of your app with their own branding, assets, and configurations.
+
+## GetX
+GetX is a powerful and lightweight state management library for Flutter apps. We've included it in this starter repo to help you manage the state of your app in a consistent and efficient manner.
+
+Get started building your dream app today with this Flutter starter repo!
 
 <img width="1604"  src="appimages/banner1.png?raw=true">
 

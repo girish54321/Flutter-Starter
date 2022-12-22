@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:reqres_app/App/HomeScreen/HomeScreen.dart';
 import 'package:reqres_app/network/model/result.dart';
 import 'package:reqres_app/network/model/userListModal.dart';
 import 'package:reqres_app/network/remote_data_source.dart';
+import 'package:reqres_app/state/userListState.dart';
 import 'package:reqres_app/widget/loadingView.dart';
 
 class HomeScreenUI extends StatelessWidget {
@@ -103,7 +105,8 @@ class MySeachDeeget extends SearchDelegate {
     required this.goToUserInfoScreen,
   });
   RemoteDataSource _apiResponse = RemoteDataSource();
-
+  final ProductController controller = Get.put(ProductController());
+  var ppp = 1;
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
@@ -126,7 +129,43 @@ class MySeachDeeget extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return Container();
+    return StreamBuilder(
+        initialData: controller.flitteredUserList.value.data,
+        stream: controller.searchList(query),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) return Text('Error: ${snapshot.error}');
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+              return const Text('Select lot');
+            case ConnectionState.waiting:
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            case ConnectionState.active:
+              return const Text('active');
+            case ConnectionState.done:
+              final List<UserListResponseData> da =
+                  snapshot.data as List<UserListResponseData>;
+              return ListView.builder(
+                itemCount: da.length,
+                itemBuilder: (context, index) {
+                  UserListResponseData? userItem = da[index];
+                  return ListTile(
+                    leading: CircleAvatar(
+                      radius: 33.0,
+                      backgroundImage: NetworkImage(userItem.avatar as String),
+                      backgroundColor: Colors.transparent,
+                    ),
+                    title: Text(userItem.firstName! + " " + userItem.lastName!),
+                    subtitle: Text(userItem.email!),
+                    onTap: () {
+                      goToUserInfoScreen(userItem);
+                    },
+                  );
+                },
+              );
+          }
+        });
   }
 
   @override
@@ -143,7 +182,6 @@ class MySeachDeeget extends SearchDelegate {
           if (snapshot.data is ErrorState) {
             return Text(snapshot.data.toString());
           }
-
           if (snapshot.data is SuccessState) {
             UserListResponse userListResponse =
                 (snapshot.data as SuccessState).value;
