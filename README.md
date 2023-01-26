@@ -19,3 +19,5 @@ Clone the project
 ```bash
   flutter build apk --release -t lib/main-reqres_dev.dart --flavor reqres_dev
 ```
+
+`
