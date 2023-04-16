@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:reqres_app/App/auth/login/loginScreen.dart';
 import 'package:reqres_app/flavors.dart';
 import 'package:reqres_app/state/settingsState.dart';
-import 'package:flutter/services.dart'; // For rootBundle
+// For rootBundle
 
 class ReqResApp extends StatelessWidget {
   final ThemeData darkThem;
@@ -20,11 +20,20 @@ class ReqResApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       themeMode: ThemeMode.system,
+      // darkTheme: ThemeData(colorScheme: darkColorScheme),
+      // theme: ThemeData(colorScheme: lightColorScheme, useMaterial3: true),
+      // darkTheme: darkThem,
+      // theme: lightThem,
       darkTheme: ThemeData(
           brightness: Brightness.dark,
           primarySwatch: Colors.green,
+          // androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
           useMaterial3: false),
-      theme: ThemeData(primarySwatch: Colors.green, useMaterial3: false),
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        useMaterial3: false,
+        // androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
+      ),
       getPages: [
         GetPage(
             name: '/',

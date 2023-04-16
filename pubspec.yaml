@@ -38,6 +38,7 @@ dependencies:
   fluttertoast: ^8.0.8
   octo_image: ^1.0.1
   cached_network_image: ^3.2.0
+  shared_preferences: ^2.1.0
 
   rules: ^2.0.0
 
