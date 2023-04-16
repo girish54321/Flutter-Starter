@@ -55,3 +55,9 @@ Clone the project
 
 ! Doctor found issues in 2 categories.
 ```
+
+## Create APK
+
+```bash
+  flutter build apk --release -t lib/main-reqres.dart --flavor reqres
+```
