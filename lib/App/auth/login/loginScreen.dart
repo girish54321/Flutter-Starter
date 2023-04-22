@@ -23,10 +23,10 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  bool validEmail = false, validPassword = false, remamberme = true;
+  bool validEmail = false, validPassword = false, rememberMe = true;
 
   void goBack(context) {
-    // Helper().goBack(context);
+    Helper().goBack();
   }
 
   void changeVaildEmail(bool value) {
@@ -41,9 +41,9 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  void changeRemamberme(bool value) {
+  void changeRemember(bool value) {
     setState(() {
-      remamberme = value;
+      rememberMe = value;
     });
   }
 
@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
       result.then((value) {
         if (value is SuccessState) {
           Helper().hideLoading();
-          if (remamberme) {
+          if (rememberMe) {
             GetStorage box = GetStorage();
             var res = value.value as LoginSuccess;
             box.write('token', res.token);
@@ -95,8 +95,8 @@ class _LoginScreenState extends State<LoginScreen> {
           validPassword: validPassword,
           changeVaildEmail: changeVaildEmail,
           changevalidPassword: changevalidPassword,
-          changeRemamberme: changeRemamberme,
-          remamberme: remamberme,
+          changeRemember: changeRemember,
+          rememberMe: rememberMe,
           formKey: _formKey,
           createAccount: createAccount,
           loginUser: loginUser),
