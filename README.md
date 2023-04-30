@@ -32,7 +32,7 @@ Clone the project
   flutter build apk --release -t lib/main-reqres_dev.dart --flavor reqres_dev
 ```
 
-## Flutter Doctor for the Repo
+## Flutter Doctor
 
 ```bash
 [✓] Flutter (Channel stable, 3.7.0, on macOS 13.2 22D49 darwin-x64, locale
@@ -60,4 +60,10 @@ Clone the project
 
 ```bash
   flutter build apk --release -t lib/main-reqres.dart --flavor reqres
+```
+
+## Change App Icon
+
+```bash
+  flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons-reqres.yaml
 ```
