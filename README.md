@@ -67,3 +67,13 @@ Clone the project
 ```bash
   flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons-reqres.yaml
 ```
+
+React, React native, Redux
+
+If you find my work useful, please consider supporting me by buying me a coffee!
+
+Your support helps me continue to develop and maintain this project.
+
+Thank you!
+
+<a href="https://www.buymeacoffee.com/girishparaa" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
