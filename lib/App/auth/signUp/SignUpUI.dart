@@ -13,8 +13,8 @@ class SignUpScreenUI extends StatelessWidget {
   final TextEditingController passwordController;
   final Function changeVaildEmail;
   final Function changevalidPassword;
-  final Function changeRemamberme;
-  final bool remamberme;
+  final Function changeRemember;
+  final bool rememberMe;
   final GlobalKey<FormState> formKey;
   final Function loginUser;
   final Function createAccount;
@@ -27,8 +27,8 @@ class SignUpScreenUI extends StatelessWidget {
       required this.validPassword,
       required this.changeVaildEmail,
       required this.changevalidPassword,
-      required this.changeRemamberme,
-      required this.remamberme,
+      required this.changeRemember,
+      required this.rememberMe,
       required this.formKey,
       required this.loginUser,
       required this.createAccount})
@@ -177,9 +177,9 @@ class SignUpScreenUI extends StatelessWidget {
                                               width: 24.0,
                                               child: Checkbox(
                                                 onChanged: (bool? value) {
-                                                  changeRemamberme(value);
+                                                  changeRemember(value);
                                                 },
-                                                value: remamberme,
+                                                value: rememberMe,
                                               )),
                                         ),
                                       ]),
