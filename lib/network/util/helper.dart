@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:fluttertoast/fluttertoast.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:get/get.dart';
@@ -22,14 +22,14 @@ class Helper {
   }
 
   showMessage(String message, BuildContext context) {
-    Fluttertoast.showToast(
-        msg: message,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.tealAccent,
-        textColor: Colors.white,
-        fontSize: 16.0);
+    // Fluttertoast.showToast(
+    //     msg: message,
+    //     toastLength: Toast.LENGTH_SHORT,
+    //     gravity: ToastGravity.BOTTOM,
+    //     timeInSecForIosWeb: 1,
+    //     backgroundColor: Colors.tealAccent,
+    //     textColor: Colors.white,
+    //     fontSize: 16.0);
   }
 
   dismissKeyBoard(BuildContext context) {

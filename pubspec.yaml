@@ -35,7 +35,7 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   animate_do: ^2.1.0
-  fluttertoast: ^8.0.8
+  # fluttertoast: ^8.2.2
   octo_image: ^1.0.1
   cached_network_image: ^3.2.0
   shared_preferences: ^2.1.0
