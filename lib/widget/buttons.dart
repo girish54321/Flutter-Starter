@@ -40,7 +40,7 @@ class BlackButton extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       onPressed: function,
       style: ElevatedButton.styleFrom(
-        primary: Theme.of(context).accentColor,
+        // primary: Theme.of(context).accentColor,
         textStyle: TextStyle(color: Colors.white),
       ),
       child: SizedBox(

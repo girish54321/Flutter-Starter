@@ -28,10 +28,10 @@ class ReqResApp extends StatelessWidget {
           brightness: Brightness.dark,
           primarySwatch: Colors.green,
           // androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
-          useMaterial3: false),
+          useMaterial3: true),
       theme: ThemeData(
         primarySwatch: Colors.green,
-        useMaterial3: false,
+        useMaterial3: true,
         // androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
       ),
       getPages: [
