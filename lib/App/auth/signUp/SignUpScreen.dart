@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:reqres_app/App/HomeScreen/HomeScreen.dart';
+import 'package:reqres_app/App/HomeScreen/FeedScreen.dart';
 import 'package:reqres_app/App/auth/signUp/SignUpUI.dart';
 import 'package:reqres_app/network/dataModel/LoginSuccess.dart';
 import 'package:reqres_app/network/model/result.dart';
@@ -60,10 +60,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
           if (rememberMe) {
             GetStorage box = GetStorage();
             var res = value.value as LoginSuccess;
-            box.write('token', res.token);
+            box.write('token', res.user?.token);
           }
-          // Get.off(HomeScreen());
-          Get.offAll(HomeScreen());
+          Get.offAll(FeedScreen());
         }
       });
     } else {

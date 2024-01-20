@@ -1,13 +1,18 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:get/get_instance/src/get_instance.dart';
 import 'package:get/route_manager.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:reqres_app/App/HomeScreen/HomeScreen.dart';
+import 'package:reqres_app/App/MainTab/MainTab.dart';
 import 'package:reqres_app/App/auth/login/loginUI.dart';
 import 'package:reqres_app/App/auth/signUp/SignUpScreen.dart';
+import 'package:reqres_app/AppConst/AppConst.dart';
 import 'package:reqres_app/network/dataModel/LoginSuccess.dart';
 import 'package:reqres_app/network/model/result.dart';
 import 'package:reqres_app/network/remote_data_source.dart';
 import 'package:reqres_app/network/util/helper.dart';
+import 'package:reqres_app/state/authController.dart';
 import 'package:reqres_app/widget/dismissKeyBoardView.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -22,6 +27,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  final AuthController authController =
+      GetInstance().put<AuthController>(AuthController());
 
   bool validEmail = false, validPassword = false, rememberMe = true;
 
@@ -53,8 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
       Helper().showLoading();
       RemoteDataSource _apiResponse = RemoteDataSource();
       var parameter = {
-        "email": "eve.holt@reqres.in",
-        "password": "cityslickasss"
+        "user": {"email": "girish54321@gmail.com", "password": "Girish@54321"}
       };
       Future<Result> result = _apiResponse.userLogin(parameter);
       result.then((value) {
@@ -63,13 +70,15 @@ class _LoginScreenState extends State<LoginScreen> {
           if (rememberMe) {
             GetStorage box = GetStorage();
             var res = value.value as LoginSuccess;
-            box.write('token', res.token);
+            authController.setUserData(res.user!);
+            box.write(JWT_KEY, res.user?.token);
+            box.write(USER_DATA, json.encode(res.user));
           }
-          Get.off(HomeScreen());
+          Get.off(const MainTab());
         } else {}
       });
     } else {
-      // Helper().vibratPhone();
+      Helper().hideLoading();
     }
   }
 

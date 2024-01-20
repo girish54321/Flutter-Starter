@@ -1,11 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:reqres_app/main.dart';
-import 'app.dart';
 import 'flavors.dart';
 
 Future<void> main() async {
