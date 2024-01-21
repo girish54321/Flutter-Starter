@@ -17,7 +17,6 @@ class ReqResClient {
   Future<Response> request(
       {required RequestType requestType,
       required String path,
-      String? endPoint,
       Map<String, String>? params,
       dynamic parameter = Nothing}) async {
     //* Check for the Token
@@ -25,14 +24,14 @@ class ReqResClient {
       'Content-Type': 'application/json',
       if (box.hasData(JWT_KEY)) 'Authorization': 'Bearer ${box.read(JWT_KEY)}',
     };
-
+    print("_baseUrl");
+    print("Bearer ${box.read(JWT_KEY)}");
+    print(_baseUrl + path);
     switch (requestType) {
       case RequestType.GET:
         var uri =
             _baseUrl + path + ((params != null) ? queryParameters(params) : "");
-        if (endPoint != null) {
-          uri = _baseUrl + path + endPoint;
-        }
+        print(uri);
         return _client.get(
           Uri.parse(uri),
           headers: headers,

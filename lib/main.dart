@@ -30,7 +30,7 @@ class ReqResApp extends StatelessWidget {
             name: '/',
             page: () {
               return box.hasData(JWT_KEY)
-                  ? _wrapWithBanner(const MainTab())
+                  ? _wrapWithBanner(MainTab())
                   : _wrapWithBanner(LoginScreen());
             })
       ],

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:reqres_app/App/BookMarkArticles/BookMarkArticles.dart';
 import 'package:reqres_app/App/GlobalFeedScreen/GlobalFeedScreen.dart';
 import 'package:reqres_app/App/HomeScreen/FeedScreen.dart';
-import 'package:reqres_app/App/ProfileScree/ProfileScree.dart';
+import 'package:reqres_app/App/SettingsScreen/SettingsScreen.dart';
 
 class MainTab extends StatefulWidget {
   const MainTab({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class _MainTabState extends State<MainTab> {
     FeedScreen(),
     GlobalFeedScreen(),
     BookMarkArticles(),
-    const ProfileScree(),
+    SettingsScreen(),
   ];
 
   @override
