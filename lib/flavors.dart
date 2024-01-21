@@ -9,19 +9,6 @@ class F {
 
   static String get name => appFlavor?.name ?? '';
 
-  static String get baseUrl {
-    switch (appFlavor) {
-      case Flavor.REQRES:
-        return 'https://api.realworld.io/api/';
-      case Flavor.REQRES_DEV:
-        return 'https://api.realworld.io/api/';
-      case Flavor.REQRES_QA:
-        return 'https://api.realworld.io/api/';
-      default:
-        return 'https://api.realworld.io/api/';
-    }
-  }
-
   static String get title {
     switch (appFlavor) {
       case Flavor.REQRES:
@@ -34,4 +21,5 @@ class F {
         return 'title';
     }
   }
+
 }

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:reqres_app/App/HomeScreen/HomeScreen.dart';
 import 'package:get/get.dart';
-import 'package:reqres_app/App/MainTab/MainTab.dart';
 import 'package:reqres_app/App/auth/login/loginScreen.dart';
-import 'package:reqres_app/AppConst/AppConst.dart';
 import 'package:reqres_app/flavors.dart';
 import 'package:reqres_app/state/settingsState.dart';
 // For rootBundle
@@ -21,16 +20,26 @@ class ReqResApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       themeMode: ThemeMode.system,
-      darkTheme: ThemeData(brightness: Brightness.dark, useMaterial3: true),
+      // darkTheme: ThemeData(colorScheme: darkColorScheme),
+      // theme: ThemeData(colorScheme: lightColorScheme, useMaterial3: true),
+      // darkTheme: darkThem,
+      // theme: lightThem,
+      darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          primarySwatch: Colors.green,
+          // androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
+          useMaterial3: true),
       theme: ThemeData(
+        primarySwatch: Colors.green,
         useMaterial3: true,
+        // androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
       ),
       getPages: [
         GetPage(
             name: '/',
             page: () {
-              return box.hasData(JWT_KEY)
-                  ? _wrapWithBanner(MainTab())
+              return box.hasData('token')
+                  ? _wrapWithBanner(HomeScreen())
                   : _wrapWithBanner(LoginScreen());
             })
       ],

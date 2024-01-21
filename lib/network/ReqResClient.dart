@@ -2,13 +2,12 @@ import 'dart:convert';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart';
 import 'package:reqres_app/AppConst/AppConst.dart';
-import 'package:reqres_app/flavors.dart';
 import 'util/nothing.dart';
 import 'util/request_type.dart';
 import 'util/request_type_exception.dart';
 
 class ReqResClient {
-  static final String _baseUrl = F.baseUrl;
+  static const String _baseUrl = "https://reqres.in/api";
   final Client _client;
   GetStorage box = GetStorage();
 
@@ -24,26 +23,17 @@ class ReqResClient {
       'Content-Type': 'application/json',
       if (box.hasData(JWT_KEY)) 'Authorization': 'Bearer ${box.read(JWT_KEY)}',
     };
-    print("_baseUrl");
-    print("Bearer ${box.read(JWT_KEY)}");
-    print(_baseUrl + path);
     switch (requestType) {
       case RequestType.GET:
-        var uri =
-            _baseUrl + path + ((params != null) ? queryParameters(params) : "");
-        print(uri);
-        return _client.get(
-          Uri.parse(uri),
-          headers: headers,
-        );
+        var uri = _baseUrl +
+            path +
+            ((params != null) ? this.queryParameters(params) : "");
+        return _client.get(Uri.parse(uri));
       case RequestType.POST:
         return _client.post(Uri.parse("$_baseUrl/$path"),
             headers: headers, body: json.encode(parameter));
       case RequestType.DELETE:
-        return _client.delete(
-          Uri.parse("$_baseUrl/$path"),
-          headers: headers,
-        );
+        return _client.delete(Uri.parse("$_baseUrl/$path"));
       default:
         return throw RequestTypeNotFoundException(
             "The HTTP request mentioned is not found");
