@@ -1,14 +1,12 @@
-enum APIPath { login, users, articles, feed }
+enum APIPath { login, users }
 
 class APIPathHelper {
   static String getValue(APIPath path) {
     switch (path) {
       case APIPath.login:
-        return "users/login";
-      case APIPath.articles:
-        return "/articles";
-      case APIPath.feed:
-        return "articles/feed";
+        return "login";
+      case APIPath.users:
+        return "/users";
       default:
         return "";
     }

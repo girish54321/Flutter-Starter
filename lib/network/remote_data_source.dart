@@ -19,7 +19,7 @@ class RemoteDataSource {
           requestType: RequestType.POST,
           path: APIPathHelper.getValue(APIPath.login),
           parameter: parameter);
-      print(response.body.toString());
+      // print(response.body.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
         incomingData = Result<LoginSuccess>.success(
             LoginSuccess.fromJson(json.decode(response.body)));
