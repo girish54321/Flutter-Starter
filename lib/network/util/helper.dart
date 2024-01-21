@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:get/get.dart';
+import 'package:reqres_app/App/ArticleViewScreen/ArticleViewScreen.dart';
 import 'package:reqres_app/widget/DialogHelper.dart';
 
 class Helper {
@@ -19,6 +20,10 @@ class Helper {
         ),
       );
     }
+  }
+
+  viewArticle({required BuildContext context}) {
+    goToPage(context: context, child: const ArticleViewScreen());
   }
 
   showMessage(String message, BuildContext context) {

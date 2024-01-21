@@ -15,7 +15,7 @@ class BookMarkArticlesUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("BookMark"),
+        title: const Text("Bookmark"),
       ),
       body: Obx((() => ListView.builder(
             itemCount:

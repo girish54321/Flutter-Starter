@@ -12,6 +12,7 @@ class BookArticleController extends GetxController {
   final ArticleDataSource _apiResponse = ArticleDataSource();
   final AuthController authController =
       GetInstance().put<AuthController>(AuthController());
+
   @override
   void onInit() {
     // Here you can fetch you product from server
@@ -33,10 +34,7 @@ class BookArticleController extends GetxController {
   void getFeedArticle() {
     bookMarkLoading.value = true;
     var userName = authController.userData.value.username;
-    // var parameter = {"limit": "20", "favorited": userName};
     var parameter = {"limit": "20", "favorited": userName.toString()};
-    print("parameter");
-    print(parameter);
     Future<Result> result = _apiResponse.getGlobeFeedArticle(parameter);
     result.then((value) {
       bookMarkLoading.value = false;
