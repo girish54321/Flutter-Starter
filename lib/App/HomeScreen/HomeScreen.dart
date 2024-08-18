@@ -29,20 +29,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   RemoteDataSource _apiResponse = RemoteDataSource();
   final ProductController controller = Get.put(ProductController());
-  final List<AppMenuItem> menu = [
-    AppMenuItem(
-        "setting",
-        const ListTile(
-          leading: Icon(Icons.settings),
-          title: Text('Settings'),
-        )),
-    AppMenuItem(
-        "logout",
-        const ListTile(
-          leading: Icon(Icons.logout),
-          title: Text('Logout'),
-        ))
-  ];
+  final List<AppMenuItem> menu = [];
 
   Future<void> userLogout() async {
     final action =

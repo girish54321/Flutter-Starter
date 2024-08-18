@@ -5,6 +5,7 @@ import 'package:reqres_app/widget/appInputText.dart';
 import 'package:reqres_app/widget/appText.dart';
 import 'package:reqres_app/widget/buttons.dart';
 import 'package:rules/rules.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginScreenUI extends StatelessWidget {
   final bool validEmail;
@@ -36,6 +37,8 @@ class LoginScreenUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var localData = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints viewportConstraints) {
@@ -53,7 +56,7 @@ class LoginScreenUI extends StatelessWidget {
                       AppBar(
                           title: FadeInRight(
                               duration: const Duration(milliseconds: 500),
-                              child: const Text("Login"))),
+                              child: Text(localData.logIn))),
                       Column(
                         children: [
                           FadeInRight(
@@ -64,25 +67,25 @@ class LoginScreenUI extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const AppTextH2(
+                                  AppTextH2(
                                     fontWeight: FontWeight.bold,
-                                    text: "LogIn",
+                                    text: localData.logIn,
                                     textAlign: TextAlign.start,
                                   ),
                                   const SizedBox(
                                     height: 4,
                                   ),
-                                  const SmallText(
-                                    text: "Enter your email and password",
+                                  SmallText(
+                                    text: localData.enteryouremailandpassword,
                                   ),
                                   InputText(
                                       textInputType: TextInputType.emailAddress,
                                       textEditingController: emailController,
                                       password: false,
-                                      hint: "Email",
+                                      hint: localData.email,
                                       onChnaged: (text) {
                                         final emailRule = Rule(text,
-                                            name: 'Email',
+                                            name: localData.email,
                                             isRequired: true,
                                             isEmail: true);
                                         if (emailRule.hasError) {
@@ -96,7 +99,7 @@ class LoginScreenUI extends StatelessWidget {
                                           : const WrongIcon(),
                                       validator: (password) {
                                         final passWordRule = Rule(password,
-                                            name: 'Email',
+                                            name: localData.email,
                                             isRequired: true,
                                             isEmail: true);
                                         if (passWordRule.hasError) {
@@ -108,10 +111,10 @@ class LoginScreenUI extends StatelessWidget {
                                   InputText(
                                       textEditingController: passwordController,
                                       password: true,
-                                      hint: "Password",
+                                      hint: localData.password,
                                       onChnaged: (text) {
                                         final emailRule = Rule(text,
-                                            name: 'Password',
+                                            name: localData.password,
                                             isRequired: true,
                                             minLength: 6);
                                         if (emailRule.hasError) {
@@ -125,7 +128,7 @@ class LoginScreenUI extends StatelessWidget {
                                           : const WrongIcon(),
                                       validator: (password) {
                                         final passWordRule = Rule(password,
-                                            name: 'Password',
+                                            name: localData.password,
                                             isRequired: true,
                                             minLength: 6);
                                         if (passWordRule.hasError) {
@@ -156,9 +159,9 @@ class LoginScreenUI extends StatelessWidget {
                                       const SizedBox(
                                         width: 8,
                                       ),
-                                      const Text(
-                                        'Remember me',
-                                        style: TextStyle(fontSize: 16.0),
+                                      Text(
+                                        localData.rememberme,
+                                        style: const TextStyle(fontSize: 16.0),
                                       ),
                                     ],
                                   ),
@@ -167,9 +170,10 @@ class LoginScreenUI extends StatelessWidget {
                                     children: [
                                       GestureDetector(
                                           onTap: () {},
-                                          child: const Text(
-                                            'Forgot Password',
-                                            style: TextStyle(fontSize: 16.0),
+                                          child: Text(
+                                            localData.forgotpassword,
+                                            style:
+                                                const TextStyle(fontSize: 16.0),
                                           )),
                                     ],
                                   ),
@@ -180,12 +184,11 @@ class LoginScreenUI extends StatelessWidget {
                                     function: () {
                                       loginUser();
                                     },
-                                    child: const Center(
+                                    child: Center(
                                       child: Text(
-                                        "Log In",
-                                        style: TextStyle(
+                                        localData.logIn,
+                                        style: const TextStyle(
                                             fontSize: 18,
-                                            color: Colors.white,
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ),
@@ -193,7 +196,9 @@ class LoginScreenUI extends StatelessWidget {
                                   Align(
                                     alignment: Alignment.topRight,
                                     child: TextButton(
-                                        child: const Text('Create New Account'),
+                                        child: Text(
+                                          localData.createnewaccount,
+                                        ),
                                         onPressed: () {
                                           createAccount();
                                         }),

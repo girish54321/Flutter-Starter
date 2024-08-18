@@ -6,6 +6,7 @@ import 'package:reqres_app/network/model/userListModal.dart';
 import 'package:reqres_app/network/remote_data_source.dart';
 import 'package:reqres_app/state/userListState.dart';
 import 'package:reqres_app/widget/loadingView.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreenUI extends StatelessWidget {
   final Function userLogout;
@@ -24,9 +25,10 @@ class HomeScreenUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var localData = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        title: Text(localData.home),
         actions: [
           IconButton(
               onPressed: () {
@@ -50,7 +52,20 @@ class HomeScreenUI extends StatelessWidget {
               }
             },
             itemBuilder: (BuildContext context) {
-              return menu.map((AppMenuItem choice) {
+              return [
+                AppMenuItem(
+                    "setting",
+                    ListTile(
+                      leading: const Icon(Icons.settings),
+                      title: Text(localData.settings),
+                    )),
+                AppMenuItem(
+                    "logout",
+                    ListTile(
+                      leading: const Icon(Icons.logout),
+                      title: Text(localData.logout),
+                    ))
+              ].map((AppMenuItem choice) {
                 return PopupMenuItem<String>(
                     value: choice.id, child: choice.widget);
               }).toList();

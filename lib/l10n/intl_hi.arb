@@ -1,0 +1,19 @@
+{
+  "logIn":"लॉगिन",
+  "enteryouremailandpassword":"अपना ईमेल और पासवर्ड दर्ज करें",
+  "email":"ईमेल",
+  "password":"पासवर्ड",
+  "rememberme":"मुझे याद रखें",
+  "forgotpassword":"पासवर्ड भूल गए",
+  "createnewaccount":"नया खाता बनाएं",
+  "signup":"साइन अप करें",
+  "confirmpassword":"पासवर्ड की पुष्टि करें",
+  "loading":"लोड हो रहा है",
+  "home":"होम",
+  "userinfo":"यूजर जानकारी",
+  "settings":"सेटिंग्स",
+  "logout":"लॉग आउट",
+  "settingsscreen":"सेटिंग्स स्क्रीन",
+  "them":"थीम",
+  "changeappthem":"ऐप थीम बदलें"
+}

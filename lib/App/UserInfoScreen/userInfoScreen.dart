@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:reqres_app/network/model/userListModal.dart';
 import 'package:reqres_app/state/userListState.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UserInfoScreenUI extends StatelessWidget {
   const UserInfoScreenUI({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var localData = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: const Text("User Info")),
+      appBar: AppBar(title: Text(localData.userinfo)),
       body: ListView(
         children: [
           GetX<ProductController>(

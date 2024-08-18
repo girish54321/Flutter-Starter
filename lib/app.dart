@@ -10,9 +10,6 @@ class App extends StatelessWidget {
     print(F.name);
     return MaterialApp(
       title: F.title,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: _flavorBanner(
         child: MyHomePage(),
         show: kDebugMode,
