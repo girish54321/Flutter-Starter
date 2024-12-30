@@ -22,7 +22,7 @@ class ReqResApp extends StatelessWidget {
       title: 'Flutter Demo',
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      // locale: Locale('hi'),
+      darkTheme: ThemeData(brightness: Brightness.dark),
       getPages: [
         GetPage(
             name: '/',
