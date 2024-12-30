@@ -1,0 +1,19 @@
+{
+  "logIn":"LogIn",
+  "enteryouremailandpassword":"Enter Your Email And Password",
+  "email":"Email",
+  "password":"Password",
+  "rememberme":"Remember me",
+  "forgotpassword":"Forgot Password",
+  "createnewaccount":"Create New Account",
+  "signup":"Sign Up",
+  "confirmpassword":"Confirm Password",
+  "loading":"Loading",
+  "home":"Home",
+  "userinfo":"User Info",
+  "settings":"Settings",
+  "logout":"LogOut",
+  "settingsscreen":"Settings",
+  "them":"Them",
+  "changeappthem":"Change App Them"
+}

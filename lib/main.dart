@@ -5,13 +5,14 @@ import 'package:get/get.dart';
 import 'package:reqres_app/App/auth/login/loginScreen.dart';
 import 'package:reqres_app/flavors.dart';
 import 'package:reqres_app/state/settingsState.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 // For rootBundle
 
 class ReqResApp extends StatelessWidget {
-  final ThemeData darkThem;
-  final ThemeData lightThem;
-  const ReqResApp({Key? key, required this.darkThem, required this.lightThem})
-      : super(key: key);
+  const ReqResApp({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,21 +20,9 @@ class ReqResApp extends StatelessWidget {
     GetInstance().put<SettingController>(SettingController());
     return GetMaterialApp(
       title: 'Flutter Demo',
-      themeMode: ThemeMode.system,
-      // darkTheme: ThemeData(colorScheme: darkColorScheme),
-      // theme: ThemeData(colorScheme: lightColorScheme, useMaterial3: true),
-      // darkTheme: darkThem,
-      // theme: lightThem,
-      darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.green,
-          // androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
-          useMaterial3: true),
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        useMaterial3: true,
-        // androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
-      ),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      darkTheme: ThemeData(brightness: Brightness.dark),
       getPages: [
         GetPage(
             name: '/',
