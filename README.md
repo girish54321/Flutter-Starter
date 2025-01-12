@@ -1,3 +1,13 @@
+# ⚠️ Warning: This Repository is Deprecated ⚠️ new [project](https://github.com/girish54321/Flutter-StarterApp) is here.
+
+## Why? 🤔
+
+Due to significant changes in Flutter, maintaining this project has become challenging.
+What's Next? 🚀
+
+I've created a new and improved project using the latest version of Flutter. 🎉 You can check it out [here](https://github.com/girish54321/Flutter-StarterApp).
+
+Thank you for understanding! 🙌
 # Flutter Starter with Flavors ❤️
 
 ## Welcome
